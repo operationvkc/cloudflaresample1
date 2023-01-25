@@ -1,0 +1,381 @@
+
+<style>
+*{
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #0D5038;
+  --color-secondary: #D2A093;
+  --color-light: #FEFCF1;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-light);
+  font-family: "Inter";
+  color: #1a8a60;
+}
+
+h1 {
+  font-family: 'Abril Fatface';
+  color: var(--color-primary);
+  font-size: 420%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+p {
+  text-align: center;
+  font-size: 125%;
+  margin-bottom: 2rem;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 150%;
+}
+
+.scroll-symbol {
+  animation: bounce 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.wave-symbol {
+  margin-right: 0.5rem;
+  transform-origin: bottom right;
+  animation: wave 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.tag-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  border: 1px solid #1a8a60;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #d2ece3;
+  font-weight: bold;
+  font-size: 75%;
+  letter-spacing: 0.02rem;
+}
+
+.header {
+  display: grid;
+  place-items: center;
+  height: 69vh;
+}
+
+.frame {
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  grid-auto-flow: column;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  aspect-ratio: 2/1;
+  margin-top: 5rem;
+  border: 5px solid var(--color-primary);
+  border-radius: 1rem;
+  position: relative;
+  background-color: white;
+}
+
+.frame:hover .avatar {
+  background-size: 105%;
+  box-shadow: 0 10px 50px -20px var(--color-primary), 0 -20px 50px var(--color-primary) inset;
+}
+
+.frame:hover .avatar__subject {
+  background-size: 105%;
+}
+
+.avatar {
+  width: 20rem;
+  aspect-ratio: 1/1;
+  border: 15px solid var(--color-secondary);
+  border-radius: 50%;
+  background-image: url('https://images.unsplash.com/photo-1502810365585-56ffa361fdde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  overflow: hidden;
+  display: grid;
+  place-content: end;
+  transition: all 750ms cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.avatar:focus {
+  outline: none;
+}
+
+.avatar__subject {
+  display: block;
+  height: 28rem;
+  width: 18rem;
+  background-image: url('https://image.pngaaa.com/880/478880.png');
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 95%;
+  transition: all 750ms cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.avatar__subject--top {
+  position: absolute;
+  top: -1.25%;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+  height: 20vh;
+  color: var(--color-light);
+  background-color: var(--color-primary);
+}
+
+.gallery-container {
+  display: grid;
+  align-content: center;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  z-index: 100;
+}
+
+.gallery {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.gallery__item {
+  position: relative;
+  width: 400px;
+  height: 320px;
+  aspect-ratio: 5/4;
+  padding: 1rem;
+  background-color: var(--color-secondary);
+  border-radius: 0.5rem;
+  cursor: grab;
+  object-fit: cover;
+  box-shadow: 0 10px 50px -30px var(--color-primary),
+    0 10px 50px -30px var(--color-primary),
+    0 2px 10px -5px var(--color-primary);
+}
+
+.gallery__item figure {
+  width: 100%; 
+  height: 100%;
+  margin: 0;
+}
+
+.gallery__item img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  border-radius: 0.25rem;
+  border: 12px solid white;
+  border-bottom-width: 66px
+}
+
+.gallery__item figcaption {
+  font-family: 'Sacramento';
+  text-align: center;
+  font-size: 250%;
+  translate: 0 -110%;
+}
+
+@keyframes bounce {
+  0% {
+    translate: 0 0;
+  }
+  60% {
+    translate: 0 0;
+  }
+  70% {
+    translate: 0 25%;
+  }
+  80% {
+    translate: 0 0;
+  }
+  90% {
+    translate: 0 25%;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes wave {
+  0% {
+    rotate: 0deg
+  }
+  60% {
+    rotate: 0deg
+  }
+  70% {
+    rotate: 22deg
+  }
+  80% {
+    rotate: 0deg
+  }
+  90% {
+    rotate: 22deg
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .frame {
+    width: auto;
+    margin: 2rem;
+    margin-top: 7rem;
+    padding: 2rem;
+  }
+  
+  .avatar__subject--top {
+    top: -39%;
+  }
+  
+  h1 {
+    font-size: 250%;
+  }
+  
+  p {
+    font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  
+  .header {
+    height: unset;
+  }
+  
+  .frame {
+    grid-auto-flow: row;
+    gap: 0;
+    width: 80vw;
+    aspect-ratio: initial;
+    padding: 12vw;
+    padding-top: 30vw;
+  }
+  
+  .avatar__subject--top {
+    top: -2%;
+  }
+  
+  h1 {
+    font-size: 350%;
+  }
+  
+  p {
+    font-size: 125%;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-container {
+    height: 100vh;
+  }
+  
+  .gallery {
+    position: relative;
+    top: -50%;
+  }
+  
+}
+
+
+</style>
+<header class="header">
+  <div class="frame">
+    <div class="avatar" tabindex="0">
+      <div class="avatar__subject-container">
+        <span class="avatar__subject"></span>
+        <span class="avatar__subject avatar__subject--top"></span>
+      </div>
+    </div>
+    <div>
+      <h1>Animated Gallery</h1>
+      <p class="lead-text">Interactive avatar and scroll animated images for a blog or portfolio</p>
+      <ul class="tag-container">
+          <li class="tag">HTML</li>
+          <li class="tag">CSS</li>
+          <li class="tag">JS</li>
+        </ul>
+    </div>
+  </div>
+  <p style="padding-top: 1rem;">Scroll Down <span class="icon scroll-symbol">👇</span></p>
+</header>
+<section id="galleryContainer" class="gallery-container">
+  <ul id="gallery" class="gallery">
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1570543593818-addd35a926a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80" alt="">
+        <figcaption>Something New</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1570543706511-d602b7aa82df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" alt="">
+        <figcaption>The Arch</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1568399032147-1011aa65f85a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" alt="">
+        <figcaption>Canopy Palace</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1532990493613-6bf3c01e3ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1588&q=80" alt="">
+        <figcaption>Office Space</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1592288801240-7b18bb06e94f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60" alt="">
+        <figcaption>Sunday Morning</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1930&q=80" alt="">
+        <figcaption>Main Street</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1603896112028-722f1ba2d29a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" alt="">
+        <figcaption>Long Day</figcaption>
+      </figure>
+    </li>
+    <li class="gallery__item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1574714417416-3087a05cb429?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60" alt="">
+        <figcaption>Reach for the Sky</figcaption>
+      </figure>
+    </li>
+  </ul>
+  
+</section>
+<footer class="footer">
+  <p><span class="icon wave-symbol">👋</span> Thanks for stopping by!</p>
+</footer>
+
+<script>
+</script>
